@@ -1,15 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block stylesheets %}
-
-    {{ encore_entry_link_tags('app') }}
-
-{% endblock %}
 
 {% block body %}
-    <h1>Header example</h1>
-    <div class="container-fluid"> Container example </div>
-    <footer>
-        Footer example
-    </footer>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand">Type the word for translation in search form</a>
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
 {% endblock body %}
