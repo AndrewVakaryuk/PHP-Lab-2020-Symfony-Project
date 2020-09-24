@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Controller\Services;
+namespace App\Services;
 
 class DictionaryException extends \Exception
 {

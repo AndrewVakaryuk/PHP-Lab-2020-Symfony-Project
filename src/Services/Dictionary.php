@@ -1,8 +1,11 @@
 <?php
 
 
-namespace App\Controller\Services;
+namespace App\Services;
 
+use GuzzleHttp\Client;
+use App\Services\ClientInterface;
+use App\Services\ClientException;
 
 class Dictionary
 {
@@ -21,19 +24,19 @@ class Dictionary
     public function entries(string $lang = 'en-gb', string $word) : array
     {
         try {
-            $body = $this->client->get(sprintf(
-                'entries/%s/%s',
-                $lang,
-                $word
+            $body = $this->client->get(sprintf('entries/%s/%s',
+                $lang, $word
             ));
         } catch (ClientException $e) {
 
         }
-        $pronunciation = $body['results'][0]['lexicalEntries'][0]['entries'][0]['pronunciations'][0]['audioFile'];
+        $pronunciation = $body['results'][0]['lexicalEntries'][0]['entries'][0]['pronunciations'][0]
+        ['audioFile'];
         $definition = $body['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['definitions'];
         $data = [
             'pronunciation' => $pronunciation,
             'definition' => $definition
         ];
+        return $data;
     }
 }
