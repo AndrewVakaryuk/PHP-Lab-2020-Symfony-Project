@@ -1,0 +1,6 @@
+{% for search in searches %}
+    {
+    "tag": "{{ search.word }}",
+    "count": "{{ search.count }}"
+    },
+{% endfor %}
