@@ -10,7 +10,8 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $words = [
-            "i","try","to","start","learning","symfony"
+            "i","try","to","start","learning","symfony",
+            "life","stay","at","home","going","see"
         ];
 
         foreach ($words as $word) {

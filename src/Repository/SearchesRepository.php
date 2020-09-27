@@ -19,6 +19,14 @@ class SearchesRepository extends ServiceEntityRepository
         parent::__construct($registry, Searches::class);
     }
 
+    public function getTop(int $searches = 10)
+    {
+        return $this->createQueryBuilder('s')
+            ->orderBy('s.word', 'DESC')
+            ->setMaxResults($searches)
+            ->getQuery()
+            ->getResult();
+    }
     // /**
     //  * @return Searches[] Returns an array of Searches objects
     //  */
