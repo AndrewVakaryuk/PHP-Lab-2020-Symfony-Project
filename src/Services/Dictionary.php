@@ -24,7 +24,7 @@ class Dictionary
     public function entries(string $lang = 'en-gb', string $word) : array
     {
         try {
-            $body = $this->client->get(sprintf('entries/%s/%s',
+            $body = $this->client->get(sprintf('/%s/%s',
                 $lang, $word
             ));
         } catch (ClientException $e) {

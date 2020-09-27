@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Controller;
+use App\Services\GuzzleClient;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Services\Dictionary;
+
+class SearchController extends AbstractController
+{
+    private $result;
+    private $client;
+
+    private function getResult(Dictionary $dictionary)
+    {
+        $client = new GuzzleClient('https://od-api.oxforddictionaries.com/api/v2/entries',
+            'e4fa8297', 'c84197ccd823305312a3b687435fe4b2');
+
+        $result = $dictionary->entries('en-gb', 'tea');
+        dd($result);
+    }
+}
