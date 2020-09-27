@@ -9,9 +9,12 @@ use App\Services\ClientException;
 
 class Dictionary
 {
-    private $client;
+    /**
+     * @var \App\Services\ClientInterface
+     */
+    public $client;
 
-    private function __construct(ClientInterface $client)
+    public function __construct(ClientInterface $client)
     {
         $this->client = $client;
     }

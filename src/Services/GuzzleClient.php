@@ -8,9 +8,9 @@ use GuzzleHttp\Exception\RequestException;
 class GuzzleClient implements ClientInterface
 {
 
-    private $client;
+    public $client;
 
-    public function __construct($endpoint, $appId, $appKey)
+    public function __construct(string $endpoint, string $appId, string $appKey)
     {
         $this->client = new Client([
             'base_uri' => $endpoint,
