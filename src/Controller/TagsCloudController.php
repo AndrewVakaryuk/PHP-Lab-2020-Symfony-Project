@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class TagsCloudController extends AbstractController
 {
     /**
-     * @Route("/tags")
+     * @Route("/tags", name = "tags")
      * @param SearchesRepository $repository
      * @return Response
      */
