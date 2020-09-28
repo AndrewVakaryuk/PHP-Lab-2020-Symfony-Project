@@ -17,5 +17,9 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress"
+    },
+    "dependencies": {
+        "ionic-native": "https://github.com/ionic-team/ionic-native/tarball/v3.5.0",
+        "yarn": "^1.22.5"
     }
 }

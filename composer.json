@@ -5,6 +5,10 @@
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "composer/package-versions-deprecated": "^1.11",
+        "doctrine/doctrine-bundle": "^2.1",
+        "doctrine/doctrine-migrations-bundle": "^3.0",
+        "doctrine/orm": "^2.7",
         "doctrine/annotations": "^1.10",
         "guzzlehttp/guzzle": "^7.1",
         "symfony/console": "5.1.*",
@@ -18,6 +22,8 @@
         "twig/twig": "^2.12|^3.0"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.3",
+        "symfony/maker-bundle": "^1.21"
     },
     "config": {
         "optimize-autoloader": true,
