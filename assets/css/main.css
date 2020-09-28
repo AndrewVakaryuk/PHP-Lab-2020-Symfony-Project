@@ -98,3 +98,24 @@ a,a:visited {
 .searchform button:hover {
     opacity:.9;
 }
+
+.container-result{
+    padding: 10% 10%;
+    max-width: 80%;
+    margin: 0px auto;
+}
+.oxford-title{
+    text-align: center;
+}
+.definition{
+    margin: 5% 2% 5% 2%;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+}
+.pronunciation{
+    padding: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
