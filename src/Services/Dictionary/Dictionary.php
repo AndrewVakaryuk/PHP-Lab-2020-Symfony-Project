@@ -1,16 +1,15 @@
 <?php
 
 
-namespace App\Services;
+namespace App\Services\Dictionary;
 
-use GuzzleHttp\Client;
-use App\Services\ClientInterface;
-use App\Services\ClientException;
+use App\Services\Client\ClientInterface;
+use App\Services\Client\ClientException;
 
 class Dictionary
 {
     /**
-     * @var \App\Services\ClientInterface
+     * @var \App\Services\Client\ClientInterface
      */
     public $client;
 
@@ -27,19 +26,19 @@ class Dictionary
     public function entries(string $lang = 'en-gb', string $word) : array
     {
         try {
-            $body = $this->client->get(sprintf('/%s/%s',
+            $body = $this->client->get(sprintf('%s/%s',
                 $lang, $word
             ));
         } catch (ClientException $e) {
 
         }
-        $pronunciation = $body['results'][0]['lexicalEntries'][0]['entries'][0]['pronunciations'][0]
-        ['audioFile'];
-        $definition = $body['results'][0]['lexicalEntries'][0]['entries'][0]['senses'][0]['definitions'];
-        $data = [
+
+        $pronunciation = $body->results[0]->lexicalEntries[0]->entries[0]->pronunciations[0]->audioFile;
+        $definition = $body->results[0]->lexicalEntries[0]->entries[0]->senses[0]->definitions;
+
+        return [
             'pronunciation' => $pronunciation,
             'definition' => $definition
         ];
-        return $data;
     }
 }

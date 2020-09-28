@@ -3,8 +3,8 @@
 {% block title %}Define and Pronounce{% endblock %}
 
 {% block body %}
-    <form class="searchform cf">
-        <input type="text">
+    <form class="searchform cf" action="{{ path('search') }}" method="get" >
+        <input type="text" name="word">
         <button type="submit">Search</button>
     </form>
 {% endblock body %}

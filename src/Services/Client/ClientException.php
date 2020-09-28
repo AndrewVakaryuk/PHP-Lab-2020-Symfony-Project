@@ -1,5 +1,5 @@
 <?php
-namespace App\Services;
+namespace App\Services\Client;
 use Exception;
 
 class ClientException extends Exception

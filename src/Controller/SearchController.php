@@ -1,21 +1,31 @@
 <?php
 
 namespace App\Controller;
-use App\Services\GuzzleClient;
+use App\Services\Client\GuzzleClient;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Services\Dictionary;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\Annotation\Route;
+use App\Services\Dictionary\Dictionary;
 
 class SearchController extends AbstractController
 {
-    public $result;
-    public $client;
 
-    public function getResult(Dictionary $dictionary)
+    /**
+     * @Route("/search", name="search")
+     *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function getResult(Request $request, Dictionary $dictionary)
     {
-        $client = new GuzzleClient('https://od-api.oxforddictionaries.com/api/v2/entries',
-            'e4fa8297', 'c84197ccd823305312a3b687435fe4b2');
 
-        $result = $dictionary->entries('en-gb', 'tea');
-        dd($result);
+        $word = $request->query->get('word');
+
+        $result = $dictionary->entries('en-gb', $word);
+
+        return $this->render('searchlayout.html.twig', [
+            'word' => $word,
+            'result' => $result,
+        ]);
     }
 }

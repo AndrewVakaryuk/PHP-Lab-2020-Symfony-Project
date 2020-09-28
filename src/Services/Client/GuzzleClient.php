@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Services;
+namespace App\Services\Client;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 
@@ -10,6 +10,12 @@ class GuzzleClient implements ClientInterface
 
     public $client;
 
+    /**
+     * GuzzleClient constructor.
+     * @param string $endpoint
+     * @param string $appId
+     * @param string $appKey
+     */
     public function __construct(string $endpoint, string $appId, string $appKey)
     {
         $this->client = new Client([
